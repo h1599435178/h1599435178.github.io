@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+
+</head>
+
+<body>
+    <table align="center" id="tab" cellpadding="0" cellspacing="0" border="1" bordercolor="black" width="500px"
+        height="500px">
+        <tr height="200px">
+            <td align="center" width="200">
+                <p>你</p><br>
+                <img id="m1" src="img/ph.jpg">
+            </td>
+            <td align="center">
+                <p style="font-size: 50px;color: yellow;"><b>vs</b></p>
+            </td>
+            <td align="center" width="200">
+                <p>电脑</p><br>
+                <img id="m2" src="img/ph.jpg">
+            </td>
+        </tr>
+        <tr align="center" height="100px">
+            <td colspan="3">
+                <p>
+                    <font color="coral" size="7"><b id="j">Are you ready?</b></font>
+                </p>
+            </td>
+        </tr>
+        <tr height="200px">
+            <td align="center" width="200">
+                <p>你选择了：</p><br />
+                <img id="mg" src="img/ph.jpg">
+            </td>
+            <td align="center" style="font-size:30px;color: yellow;"><b>choice</b></td>
+            <td align="center" width="200">
+                <form id="form1" name="form1">
+                    请选择出拳：
+                    <select id="xz" name="xz" onchange="sele()">
+                        <option value="">请选择</option>
+                        <option value="0">拳头</option>
+                        <option value="1">剪刀</option>
+                        <option value="2">布</option>
+
+                    </select><br />
+                    <button type="button" onclick="tj()">选好了，出拳</button><br />
+                    <button type="rese">重新再来</button>
+                </form>
+            </td>
+        </tr>
+        <tr height="100px">
+            <td colspan="3" align="center">
+                <p>总数：<span id="s1"></span>&nbsp;&nbsp;&nbsp;赢：<span id="s2"></span>&nbsp;&nbsp;&nbsp;输：<span
+                        id="s3"></span>&nbsp;&nbsp;&nbsp;平：<span id="s4"></span></p>
+                <button type="button" onclick="he()">显示比赛结果</button>
+            </td>
+        </tr>
+    </table>
+</body>
+<script type="text/javascript">
+    var sheng = 0;
+    var bai = 0;
+    var ping = 0;
+    var sum = 0;
+    function sele() {
+        var a = document.getElementById("xz");
+        var aa = document.getElementById("mg");
+        var b = a.value;
+        if (b == "0") {
+            aa.src = "img/st.jpg";
+        } else if (b == "1") {
+            aa.src = "img/jd.jpg";
+        } else if (b == "2") {
+            aa.src = "img/bu.jpg";
+        } else {
+            aa.src = "img/ph.jpg";
+        }
+    }
+    function tj() {
+        var a = document.getElementById("xz");
+        var c1 = document.getElementById("m1");
+        var c2 = document.getElementById("m2");
+        var b = a.value;
+
+        if (b == "0") {
+            c1.src = "img/st.jpg";
+        } else if (b == "1") {
+            c1.src = "img/jd.jpg";
+        } else if (b == "2") {
+            c1.src = "img/bu.jpg";
+        } else {
+            alert("请选择！再出拳");
+            return false;
+        }
+
+        var num3 = parseInt(b);
+        var num = Math.round(Math.random() * 10);
+        var num2 = num % 3;
+        if (num2 == 0) {
+            c2.src = "img/st.jpg";
+        } else if (num2 == 1) {
+            c2.src = "img/jd.jpg";
+        } else if (num2 == 2) {
+            c2.src = "img/bu.jpg";
+        }
+        //判断猜拳
+        var ts = document.getElementById("j")
+        var ss = num3 - num2;
+        if (ss == 0) {
+            ts.innerText = "平";
+            ping++;
+        } else if (ss == -1 || ss == 2) {
+            ts.innerText = "胜";
+            sheng++;
+        } else {
+            ts.innerText = "败";
+            bai++;
+        }
+    }
+    function he() {
+        var w1 = document.getElementById("s1");
+        var w2 = document.getElementById("s2");
+        var w3 = document.getElementById("s3");
+        var w4 = document.getElementById("s4");
+        sum = sheng + bai + ping;
+        w1.innerText = sum;
+        w2.innerText = sheng;
+        w3.innerText = bai;
+        w4.innerText = ping;
+    }
+</script>
+
+</html>

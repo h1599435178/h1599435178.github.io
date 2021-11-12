@@ -275,7 +275,7 @@
 <p><img src="https://h1599435178.github.io/2021/11/12/N1BOOK%E8%A7%A3%E9%A2%98%E7%AC%94%E8%AE%B0/image-20211112221247643.png" alt="main"></p>
 <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_42333641/article/details/89394092">使用方法</a></p>
 <p>首先在Buuoj.cn启动靶机</p>
-<p><img src="C:\Users\MrBear\AppData\Roaming\Typora\typora-user-images\image-20211112221501528.png" alt="image-20211112221501528"></p>
+<p><img src="https://h1599435178.github.io/2021/11/12/N1BOOK%E8%A7%A3%E9%A2%98%E7%AC%94%E8%AE%B0/image-20211112221501528.png" alt="image-20211112221501528"></p>
 <p>不多说，直接上dirsearch扫描</p>
 <figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">py dirsearch.py -u 靶机地址 -e php	<span class="regexp">//</span>因为只需要爆破出php文件，所以填php。若需要爆出所有文件，将php改为*</span><br></pre></td></tr></table></figure>
 
@@ -289,16 +289,16 @@
 <p>第一个，emmm，什么都没发生</p>
 <p><img src="https://h1599435178.github.io/2021/11/12/N1BOOK%E8%A7%A3%E9%A2%98%E7%AC%94%E8%AE%B0/image-20211112222417047.png" alt="flag2"></p>
 <p>再带个~进去了发现flag2：s_v3ry_im</p>
-<p><img src="C:\Users\MrBear\AppData\Roaming\Typora\typora-user-images\image-20211112222453681.png" alt="image-20211112222453681"></p>
+<p><img src="https://h1599435178.github.io/2021/11/12/N1BOOK%E8%A7%A3%E9%A2%98%E7%AC%94%E8%AE%B0/image-20211112222453681.png" alt="image-20211112222453681"></p>
 <p>以我们的英语水平，不难判断这道题起码三个flag，接下来再进robots.txt看看</p>
 <p><img src="https://h1599435178.github.io/2021/11/12/N1BOOK%E8%A7%A3%E9%A2%98%E7%AC%94%E8%AE%B0/image-20211112222620666.png" alt="flag1"></p>
 <p>找到了这个东西，接着进去看看</p>
-<p><img src="C:\Users\MrBear\AppData\Roaming\Typora\typora-user-images\image-20211112222655929.png" alt="image-20211112222655929"></p>
+<p><img src="https://h1599435178.github.io/2021/11/12/N1BOOK%E8%A7%A3%E9%A2%98%E7%AC%94%E8%AE%B0/image-20211112222655929.png" alt="image-20211112222655929"></p>
 <p>找到了flag1：n1book{info_1</p>
 <p>应该还剩一个flag3，我们进.index.php.swp看看</p>
 <p><img src="https://h1599435178.github.io/2021/11/12/N1BOOK%E8%A7%A3%E9%A2%98%E7%AC%94%E8%AE%B0/image-20211112222843261.png" alt="flag3"></p>
 <p>得到了一个文件，是一个没见过后缀名的文件，拖到WinHex里看看，稍微翻了一下，找到了flag3</p>
-<p><img src="C:\Users\MrBear\AppData\Roaming\Typora\typora-user-images\image-20211112223050250.png" alt="image-20211112223050250"></p>
+<p><img src="https://h1599435178.github.io/2021/11/12/N1BOOK%E8%A7%A3%E9%A2%98%E7%AC%94%E8%AE%B0/image-20211112223050250.png" alt="image-20211112223050250"></p>
 <p>flag3：p0rtant_hack}</p>
 <p>拼凑flag，得</p>
 <figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">n1book</span>&#123;info_<span class="number">1</span>s_v<span class="number">3</span>ry_imp<span class="number">0</span>rtant_hack&#125;</span><br></pre></td></tr></table></figure>

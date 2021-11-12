@@ -234,6 +234,189 @@
             
 
   
+    <article id="post-N1BOOK解题笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+  <div class="article-entry" itemprop="articleBody">
+    
+    <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">N1BOOK [第一章 web入门]常见的搜集1</span><br></pre></td></tr></table></figure>
+
+<h3 id="N1BOOK解题笔记"><a href="#N1BOOK解题笔记" class="headerlink" title="N1BOOK解题笔记"></a>N1BOOK解题笔记</h3><p>书中介绍了</p>
+<ol>
+<li><p>git泄露</p>
+</li>
+<li><p>SVN泄露</p>
+</li>
+<li><p>HG泄露</p>
+</li>
+<li><p>总结</p>
+</li>
+</ol>
+<p>不论是.git这些隐藏文件，还是实战中的admin之类的敏感后台文件夹，其关键在于字典的强大，读者可以在某些工具的基础上进行二次开发，以满足自己需要。这里推荐一个开源的目录扫描工具：<a target="_blank" rel="noopener" href="https://github.com/maurosoria/dirsearch%E3%80%82CTF%E7%BA%BF%E4%B8%8A%E6%AF%94%E8%B5%9B%E5%BE%80%E5%BE%80%E4%BC%9A%E6%9C%89%E9%87%8D%E5%AE%9A%E5%90%91%E4%B8%80%E7%B1%BB%E9%97%AE%E9%A2%98%E3%80%82%E4%BE%8B%E5%A6%82%EF%BC%8C%E5%8F%AA%E8%A6%81%E8%AE%BF%E9%97%AE.git%EF%BC%8C%E4%BE%BF%E4%BC%9A%E8%BF%94%E5%9B%9E403%EF%BC%8C%E6%AD%A4%E6%97%B6%E8%AF%95%E6%8E%A2%E7%9D%80%E8%AE%BF%E9%97%AE.git/config%EF%BC%8C%E5%A6%82%E6%9E%9C%E6%9C%89%E6%96%87%E4%BB%B6%E5%86%85%E5%AE%B9%E8%BF%94%E5%9B%9E%EF%BC%8C%E5%B0%B1%E8%AF%B4%E6%98%8E%E5%AD%98%E5%9C%A8git%E6%B3%84%E9%9C%B2%EF%BC%8C%E5%8F%8D%E4%B9%8B%EF%BC%8C%E4%B8%80%E8%88%AC%E4%B8%8D%E5%AD%98%E5%9C%A8%E3%80%82%E8%80%8C%E5%9C%A8SVN%E6%B3%84%E9%9C%B2%E4%B8%AD%EF%BC%8C%E4%B8%80%E8%88%AC%E6%98%AF%E5%9C%A8entries%E4%B8%AD%E7%88%AC%E5%8F%96%E6%BA%90%E4%BB%A3%E7%A0%81%EF%BC%8C%E4%BD%86%E6%9C%89%E6%97%B6%E4%BC%9A%E5%87%BA%E7%8E%B0entries%E4%B8%BA%E7%A9%BA%E7%9A%84%E6%83%85%E5%86%B5%EF%BC%8C%E8%BF%99%E6%97%B6%E6%B3%A8%E6%84%8Fwc.db%E6%96%87%E4%BB%B6%E5%AD%98%E5%9C%A8%E4%B8%8E%E5%90%A6%EF%BC%8C%E4%BE%BF%E5%8F%AF%E9%80%9A%E8%BF%87%E5%85%B6%E4%B8%AD%E7%9A%84checksum%E5%9C%A8pristine%E6%96%87%E4%BB%B6%E5%A4%B9%E4%B8%AD%E8%8E%B7%E5%8F%96%E6%BA%90%E4%BB%A3%E7%A0%81%E3%80%82">https://github.com/maurosoria/dirsearch。CTF线上比赛往往会有重定向一类问题。例如，只要访问.git，便会返回403，此时试探着访问.git/config，如果有文件内容返回，就说明存在git泄露，反之，一般不存在。而在SVN泄露中，一般是在entries中爬取源代码，但有时会出现entries为空的情况，这时注意wc.db文件存在与否，便可通过其中的checksum在pristine文件夹中获取源代码。</a></p>
+<h3 id="本题就试一下总结中的dirsearch的用法"><a href="#本题就试一下总结中的dirsearch的用法" class="headerlink" title="本题就试一下总结中的dirsearch的用法"></a>本题就试一下总结中的<strong>dirsearch</strong>的用法</h3><p>首先使用网站中的pip安装方法</p>
+<p><img src="C:\Users\MrBear\AppData\Roaming\Typora\typora-user-images\image-20211112221247643.png" alt="image-20211112221247643"></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_42333641/article/details/89394092">使用方法</a></p>
+<p>首先在Buuoj.cn启动靶机</p>
+<p><img src="C:\Users\MrBear\AppData\Roaming\Typora\typora-user-images\image-20211112221501528.png" alt="image-20211112221501528"></p>
+<p>不多说，直接上dirsearch扫描</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">py dirsearch.py -u 靶机地址 -e php	//因为只需要爆破出php文件，所以填php。若需要爆出所有文件，将php改为*</span><br></pre></td></tr></table></figure>
+
+<p>但是我们直接爆破靶机地址的话，很多buu的文件也会拖出来，所以我们采用百度策略，看看之前的wp都爆出了什么文件。<img src="C:\Users\MrBear\Desktop\20210907204358219.png" alt="20210907204358219"></p>
+<p>很明显，中间的几个：</p>
+<p>/index.php~</p>
+<p>/index.php.swp</p>
+<p>/index.php</p>
+<p>/robots.txt</p>
+<p>我们挨个进去看看</p>
+<p>第一个，emmm，什么都没发生</p>
+<p><img src="C:\Users\MrBear\AppData\Roaming\Typora\typora-user-images\image-20211112222417047.png" alt="image-20211112222417047"></p>
+<p>再带个~进去了发现flag2：s_v3ry_im</p>
+<p><img src="C:\Users\MrBear\AppData\Roaming\Typora\typora-user-images\image-20211112222453681.png" alt="image-20211112222453681"></p>
+<p>以我们的英语水平，不难判断这道题起码三个flag，接下来再进robots.txt看看</p>
+<p><img src="C:\Users\MrBear\AppData\Roaming\Typora\typora-user-images\image-20211112222620666.png" alt="image-20211112222620666"></p>
+<p>找到了这个东西，接着进去看看</p>
+<p><img src="C:\Users\MrBear\AppData\Roaming\Typora\typora-user-images\image-20211112222655929.png" alt="image-20211112222655929"></p>
+<p>找到了flag1：n1book{info_1</p>
+<p>应该还剩一个flag3，我们进.index.php.swp看看</p>
+<p><img src="C:\Users\MrBear\AppData\Roaming\Typora\typora-user-images\image-20211112222843261.png" alt="image-20211112222843261"></p>
+<p>得到了一个文件，是一个没见过后缀名的文件，拖到WinHex里看看，稍微翻了一下，找到了flag3</p>
+<p><img src="C:\Users\MrBear\AppData\Roaming\Typora\typora-user-images\image-20211112223050250.png" alt="image-20211112223050250"></p>
+<p>flag3：p0rtant_hack}</p>
+<p>拼凑flag，得</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">n1book&#123;info_1s_v3ry_imp0rtant_hack&#125;</span><br></pre></td></tr></table></figure>
+
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2021/11/12/N1BOOK%E8%A7%A3%E9%A2%98%E7%AC%94%E8%AE%B0/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2021/11/12/hello-world/" target="_blank">Hello World</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2021/11/12/hello-world/" class="archive-article-date">
+        <time datetime="2021-11-11T17:44:09.301Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-11-12</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2021/11/12/hello-world/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-我的第一篇博客" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     

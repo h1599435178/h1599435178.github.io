@@ -6,7 +6,7 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://h1599435178.github.io">
-  <title>CoolGuy</title>
+  <title>-MrBearBlog-</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
@@ -15,14 +15,14 @@
     <meta name="description" content=""> -->
   
   <meta property="og:type" content="website">
-<meta property="og:title" content="CoolGuy">
+<meta property="og:title" content="-MrBearBlog-">
 <meta property="og:url" content="http://h1599435178.github.io/index.html">
-<meta property="og:site_name" content="CoolGuy">
+<meta property="og:site_name" content="-MrBearBlog-">
 <meta property="og:locale" content="en_US">
 <meta property="article:author" content="MrBear">
 <meta name="twitter:card" content="summary">
   
-    <link rel="alternative" href="/atom.xml" title="CoolGuy" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="-MrBearBlog-" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -237,11 +237,33 @@
     <article id="post-N1BOOK解题笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2021/11/12/N1BOOK%E8%A7%A3%E9%A2%98%E7%AC%94%E8%AE%B0/" target="_blank">N1BOOK [第一章 web入门]常见的搜集1</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2021/11/12/N1BOOK%E8%A7%A3%E9%A2%98%E7%AC%94%E8%AE%B0/" class="archive-article-date">
+        <time datetime="2021-11-12T14:32:11.447Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-11-12</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
   <div class="article-entry" itemprop="articleBody">
     
-    <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">N1BOOK [第一章 web入门]常见的搜集1</span><br></pre></td></tr></table></figure>
-
-<h3 id="N1BOOK解题笔记"><a href="#N1BOOK解题笔记" class="headerlink" title="N1BOOK解题笔记"></a>N1BOOK解题笔记</h3><p>书中介绍了</p>
+    <h3 id="N1BOOK解题笔记"><a href="#N1BOOK解题笔记" class="headerlink" title="N1BOOK解题笔记"></a>N1BOOK解题笔记</h3><p>书中介绍了</p>
 <ol>
 <li><p>git泄露</p>
 </li>
@@ -259,7 +281,7 @@
 <p>首先在Buuoj.cn启动靶机</p>
 <p><img src="C:\Users\MrBear\AppData\Roaming\Typora\typora-user-images\image-20211112221501528.png" alt="image-20211112221501528"></p>
 <p>不多说，直接上dirsearch扫描</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">py dirsearch.py -u 靶机地址 -e php	//因为只需要爆破出php文件，所以填php。若需要爆出所有文件，将php改为*</span><br></pre></td></tr></table></figure>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">py dirsearch.py -u 靶机地址 -e php	<span class="regexp">//</span>因为只需要爆破出php文件，所以填php。若需要爆出所有文件，将php改为*</span><br></pre></td></tr></table></figure>
 
 <p>但是我们直接爆破靶机地址的话，很多buu的文件也会拖出来，所以我们采用百度策略，看看之前的wp都爆出了什么文件。<img src="C:\Users\MrBear\Desktop\20210907204358219.png" alt="20210907204358219"></p>
 <p>很明显，中间的几个：</p>
@@ -283,7 +305,7 @@
 <p><img src="C:\Users\MrBear\AppData\Roaming\Typora\typora-user-images\image-20211112223050250.png" alt="image-20211112223050250"></p>
 <p>flag3：p0rtant_hack}</p>
 <p>拼凑flag，得</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">n1book&#123;info_1s_v3ry_imp0rtant_hack&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">n1book</span>&#123;info_<span class="number">1</span>s_v<span class="number">3</span>ry_imp<span class="number">0</span>rtant_hack&#125;</span><br></pre></td></tr></table></figure>
 
 
     
@@ -301,93 +323,6 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/2021/11/12/N1BOOK%E8%A7%A3%E9%A2%98%E7%AC%94%E8%AE%B0/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2021/11/12/hello-world/" target="_blank">Hello World</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2021/11/12/hello-world/" class="archive-article-date">
-        <time datetime="2021-11-11T17:44:09.301Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-11-12</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2021/11/12/hello-world/">展开全文 >></a>
     </p>
     
 
